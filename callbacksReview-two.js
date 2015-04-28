@@ -36,13 +36,28 @@ var songs =
 
 //Above you have a large Array of Song Objects. 
 //Write a 'getter' function that returns the songs array.
-
-  //code here
-
+//code here
+function getter() {
+    for (key in songs) {
+        console.log(songs[key].trackName);
+    }
+}
 
 //Now write a setter that takes in two paramaters.
 //The first parameter is a song object and the second parameter is a callback (which will be a placeholder for your getter function)
 //Inside your setter function first add the first parameter, or the song object, to the end of your songs array.
 //Once you do that, call your callback (getter) function which should get the songs and return them.
-  
-  //code here
+//code here
+
+function setter(obj, callback) {
+    songs.push(obj);
+    callback();
+}
+
+setter({'trackName':'testSong'}, getter);
+ 
+
+/*
+    for (key in arr) {
+        console.log(arr[key].trackName);*/
+

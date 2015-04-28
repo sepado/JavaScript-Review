@@ -1,29 +1,41 @@
 /* Make sure you do these last */
-
 /*
-
-Write a function that takes an array of integers and returns the sum of the integers after adding 1 to each.
-
+Write a function that takes an array of integers and returns the 
+sum of the integers after adding 1 to each.
 plusOneSum([1, 2, 3, 4]); // 14
-
 */
 
+var integers = [1,2,3,4];
+function plusOneSum(arr) {
+	var newArr = [];
+	arr.forEach(function(x) {
+		newArr.push(x +1);
+	});
+	var total = newArr.reduce(function(a, b) {
+		return a + b;
+	});
+	return total;
+}
+plusOneSum(integers);
 
 
 /*
-
 Write a function that accepts a multi dimensional array and returns a flattened version.
-
 flatten([1, 2, [3, [4], 5, 6], 7]) // [1, 2, 3, 4, 5, 6, 7]
-
 */
+var arr = [1, 2, [3, [4], 5, 6], 7];
 
-
+function flatten(arr, numOfNestArr) {
+	var flatterArr = [];
+	var flatArr = [];
+	flatterArr = flatterArr.concat.apply(flatterArr, arr);
+	flatArr = flatArr.concat.apply(flatArr, flatterArr);
+	return flatArr;
+}
+flatten(arr);
 
 /*
-
 Given an array [a1, a2, ..., aN, b1, b2, ..., bN, c1, c2, ..., cN] convert it to [a1, b1, c1, a2, b2, c2, ..., aN, bN, cN]
-
 */
 
 
